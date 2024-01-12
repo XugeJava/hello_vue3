@@ -7,3 +7,10 @@ export interface PersonInter{
 }
 //定义一个自定义类型Persons
 export type Persons=Array<PersonInter>  //限制数组对象
+
+
+export interface News {
+    id: string;
+    title: string;
+    content: string;
+}
