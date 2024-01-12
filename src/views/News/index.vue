@@ -5,6 +5,7 @@
       <li v-for="news in newsList" :key="news.id">
         <!-- <RouterLink :to="`/news/detail?id=${news.id}&title=${news.title}&content=${news.content}`">{{ news.title }}</RouterLink> -->
         <!-- <RouterLink :to="`/news/detail/${news.id}/${news.title}/${news.content}`">{{ news.title }}</RouterLink> -->
+        <button @click="showNews(news)">点击查看新闻详情</button>
         <RouterLink :to="{
           name:'detail',
           params: {
@@ -28,6 +29,7 @@
 
 <script setup lang="ts" name="News">
 import { reactive } from 'vue'
+import { useRouter } from 'vue-router';
 import { RouterView, RouterLink } from 'vue-router'
 import { type News} from "@/types/index"
 const newsList = reactive<News[]>([
@@ -36,6 +38,11 @@ const newsList = reactive<News[]>([
   { id: 'asfdtrfay03', title: '震惊，万万没想到', content: '明天是周一' },
   { id: 'asfdtrfay04', title: '好消息！好消息！', content: '快过年了' }
 ])
+const router=useRouter();
+const showNews=(news:News)=>{
+  console.log('点击了查看新闻')
+  router.push({path:'/news/detail',query:{id:news.id,title:news.title,content:news.content}})
+}
 
 </script>
 

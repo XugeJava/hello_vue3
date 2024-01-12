@@ -23,12 +23,12 @@ const router=createRouter({
                     name:'detail',
                     path:'detail/:id?/:title?/:content?',
                     component:import("@/views/News/components/detail.vue"),
-                    //第一种:将路由收到的所有params参数传给props
-                    // props:true
+                    // 第一种:将路由收到的所有params参数传给props
+                    //props:true
                     //第二种:可以自己决定收到的参数
-                    // props(route){
-                    //     return route.params
-                    // }
+                    props(route){
+                        return route.query
+                    }
                     //第三种 对象写法
                     // props:{
                     //     id:String,
