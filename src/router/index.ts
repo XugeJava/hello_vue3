@@ -30,11 +30,11 @@ const router=createRouter({
                     //     return route.params
                     // }
                     //第三种 对象写法
-                    props:{
-                        id:String,
-                        title:String,
-                        content:String
-                    }
+                    // props:{
+                    //     id:String,
+                    //     title:String,
+                    //     content:String
+                    // }
                 }
             ]
         }
