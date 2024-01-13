@@ -1,28 +1,27 @@
-<script setup lang="ts" name="App">
-import count from "@/views/Count/index.vue"
-import love from "@/views/Love/index.vue"
-</script>
-
 <template>
-    <div class="title">
-        <count />
-        <love />
+  <div class="app">
+    <Header/>
+    <!-- 导航区 -->
+    <div class="navigate">
+      <RouterLink replace to="/home" active-class="active">首页</RouterLink>
+      <RouterLink replace :to="{name:'xinwen'}" active-class="active">新闻</RouterLink>
+      <RouterLink replace :to="{path:'/about'}" active-class="active">关于</RouterLink>
     </div>
+    <!-- 展示区 -->
+    <div class="main-content">
+      <RouterView></RouterView>
+    </div>
+  </div>
 </template>
 
-<style lang="scss" scoped>
-  /* App */
-  .title {
-    text-align: center;
-    word-spacing: 5px;
-    margin: 30px 0;
-    height: 70px;
-    line-height: 70px;
-    background-image: linear-gradient(45deg, gray, white);
-    border-radius: 10px;
-    box-shadow: 0 0 2px;
-    font-size: 30px;
-  }
+<script lang="ts" setup name="App">
+  import {RouterView,RouterLink} from 'vue-router'
+  import Header from './components/Header.vue'
+
+</script>
+
+<style>
+    /* App */
   .navigate {
     display: flex;
     justify-content: space-around;
@@ -41,7 +40,7 @@ import love from "@/views/Love/index.vue"
     font-size: 18px;
     letter-spacing: 5px;
   }
-  .navigate a.xiaozhupeiqi {
+  .navigate a.active {
     background-color: #64967E;
     color: #ffc268;
     font-weight: 900;
