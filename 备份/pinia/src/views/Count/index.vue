@@ -14,8 +14,12 @@
 <script setup lang="ts" name="Count">
 import { ref } from "vue";
 import {useCountStore} from "@/store/Count/index"
+import { storeToRefs } from "pinia";
 // 数据
 const countStore = useCountStore();
+//只会关注数据，不会影响其他
+const {sum,address,school}=storeToRefs(countStore)
+console.log('!!!!!!!!!!!!!!!!', storeToRefs(countStore))
 let n = ref(1) // 用户选择的数字
 // 方法
 function add() {

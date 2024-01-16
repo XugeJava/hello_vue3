@@ -1,10 +1,15 @@
-import App from "./App.vue"
-import { createApp } from "vue"
+import {createApp} from 'vue'
+import App from './App.vue'
 import {createPinia} from 'pinia'
-import ElementPlus from "element-plus"
-import "element-plus/dist/index.css";
-const pinia=createPinia();
-const app=createApp(App)
-app.use(ElementPlus)
+import router from './router'
+import emitter from '@/utils/emitter'
+// 创建应用
+const app = createApp(App)
+// 创建pinia
+const pinia = createPinia()
+// 安装插件
 app.use(pinia)
-app.mount("#app");
+// 安装路由器
+app.use(router)
+// 挂载应用
+app.mount('#app')

@@ -3,7 +3,9 @@ export const useCountStore=defineStore("count",{
     //真正存储数据
     state(){
         return {
-            sum:0
+            sum:0,
+            school:'',
+            address:''
         }
     },
     actions:{
